@@ -76,7 +76,8 @@ inicio:
     }
     else
     {
-        cout << "EMPATE!" << "\n";
+        cout << "EMPATE!"
+             << "\n";
         goto repeat;
     }
 
@@ -86,7 +87,7 @@ repeat: // Bloco de repetição
          << "\n";
     cin >> repeat;
     if (repeat == 1)
-    {   
+    {
         cout << endl;
         goto inicio;
     }
