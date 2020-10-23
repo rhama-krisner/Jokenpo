@@ -1,10 +1,11 @@
 #include <iostream>
-#include <time.h>
+#include <stdlib.h>
 
 using namespace std;
 
 int main()
 {
+
 inicio:
     cout << "Escolha um numero"
          << "\n";
@@ -39,16 +40,7 @@ inicio:
     {
         cout << "[ERROR]"
              << "\n";
-        cout << "CONTINUE? Sim = 1 | Nao = 2";
-        int sn;
-        if (sn == 1)
-        {
-            goto inicio;
-        }
-        else
-        {
-            goto fim;
-        }
+        goto repeat;
     }
 
     if (pc == 1)
@@ -74,52 +66,37 @@ inicio:
     {
         cout << "GANHOU!"
              << "\n";
-        cout << "REPETIR? 1 = SIM | 2 = NAO"
-             << "\n";
-        int repeat;
-        if (repeat == 1)
-        {
-            goto inicio;
-        }
-        else
-        {
-            goto fim;
-        }
+        goto repeat;
     }
     else if (pc > player)
     {
         cout << "PERDEU!"
              << "\n";
-        cout << "REPETIR? 1 = SIM | 2 = NAO"
-             << "\n";
-        int repeat1;
-        cin >> repeat1;
-        if (repeat1 == 1)
-        {
-            goto inicio;
-        }
-        else
-        {
-            goto fim;
-        }
+        goto repeat;
     }
     else
     {
-        cout << "EMPATE!"
-             << "\n";
-        cout << "REPETIR? 1 = SIM | 2 = NAO";
-        int repeat2;
-        cin >> repeat2;
-        if (repeat2 == 1)
-        {
-            goto inicio;
-        }
-        else
-        {
-            goto fim;
-        }
+        cout << "EMPATE!" << "\n";
+        goto repeat;
     }
-    cout << endl;
+
+repeat: // Bloco de repetição
+    int repeat;
+    cout << "REPETIR? 1 = SIM | 2 = NAO"
+         << "\n";
+    cin >> repeat;
+    if (repeat == 1)
+    {   
+        cout << endl;
+        goto inicio;
+    }
+    else
+    {
+        cout << endl;
+        goto fim;
+    }
+
 fim:
+    cout << endl;
     return 0;
 }
